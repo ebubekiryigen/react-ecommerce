@@ -1,0 +1,12 @@
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
+
+.product-detail{
+    width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    img{
+        height: 400px;
+    }
+}

@@ -4,9 +4,20 @@ import Layout from "./page/Layout";
 import Signup from "./page/Auth/Signup"
 import Signin from "./page/Auth/Signin"
 import Products from "./page/Client/Products";
+import ProductDetail from "./page/Client/Products/Detail";
+import { useDispatch } from "react-redux";
+import { fetchM } from "./store/user";
+import { useEffect } from "react";
+import Profile from "./page/Client/Profile";
 
 
-function App() {
+function Router() {
+
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(fetchM())
+  })
+
   return (
     <BrowserRouter>
         <Routes>
@@ -14,11 +25,13 @@ function App() {
               <Route index element={<Home />} />
               <Route path="/signin" element={<Signin />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="/products" element={<Products />} />
+              <Route path="/products/:product_id" element={<ProductDetail />} />
             </Route>
         </Routes>
     </BrowserRouter>
   );
 }
 
-export default App;
+export default Router;
