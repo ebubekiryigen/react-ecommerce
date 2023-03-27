@@ -26,11 +26,14 @@ const user = createSlice({
             localStorage.setItem('access-token', action.payload.accessToken)
             localStorage.setItem('refresh-token', action.payload.refreshToken)
         },
+        logout: async (state)=>{
+            state.user = null
+            state.loggedIn = false
+            await userServices.logOut()
+            localStorage.removeItem('access-token')
+            localStorage.removeItem('refresh-token')
+        },
     },
-    middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-        serializableCheck: false
-    }),
     extraReducers:(builder) =>{
         builder.addCase(fetchM.pending, (state)=>{
             state.loader = true
@@ -49,5 +52,5 @@ const user = createSlice({
 })
 
 
-export const {login} = user.actions
+export const {login,logout} = user.actions
 export default user.reducer
