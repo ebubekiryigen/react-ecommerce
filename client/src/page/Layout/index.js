@@ -17,7 +17,7 @@ export default function Layout(){
                     !loader && (
                         <>
                             <nav>
-                                <div className="left">
+                                <div className="left pro">
                                     <Menu />
                                 </div>
                                 <div className="right">
