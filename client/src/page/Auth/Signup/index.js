@@ -4,11 +4,13 @@ import { SignUpValidation } from "../../../utils/validations"
 import { userServices } from "../../../services"
 import { useDispatch } from "react-redux"
 import { login } from "../../../store/user"
+import { useNavigate } from "react-router-dom"
 
 
 export default function Signup(){
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const formik = useFormik({
         initialValues: {
             email:"",
@@ -20,6 +22,7 @@ export default function Signup(){
             try {
                 const registerResponse = await userServices.registerUser({email:values.email, password:values.password})
                 dispatch(login(registerResponse))
+                navigate('/profile')
             } catch (error) {
                 bag.setErrors({general: error.response.data.message})
             }

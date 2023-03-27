@@ -36,3 +36,8 @@ export const logOut = async () =>{
     })
     return data
 }
+
+export const login = async(input) => {
+    const {data} = await axios.post(`${process.env.REACT_APP_USER_API}login`, input)
+    return data
+}

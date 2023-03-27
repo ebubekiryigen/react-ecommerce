@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { fetchM } from "./store/user";
 import { useEffect } from "react";
 import Profile from "./page/Client/Profile";
+import ProtectedRoute from "./page/ProtectedRoute";
 
 
 function Router() {
@@ -23,11 +24,13 @@ function Router() {
         <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
-              <Route path="/signin" element={<Signin />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/profile" element={<Profile />} />
               <Route path="/products" element={<Products />} />
               <Route path="/products/:product_id" element={<ProductDetail />} />
+              <Route path="/signin" element={<Signin />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/" element={<ProtectedRoute />}>
+                <Route path="/profile" element={<Profile />} />
+              </Route>
             </Route>
         </Routes>
     </BrowserRouter>
