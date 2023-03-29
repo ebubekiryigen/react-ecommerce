@@ -6,6 +6,8 @@ export default function User(){
 
 
     const {loggedIn} = useSelector(state=> state.user)
+    const {items} = useSelector(state=> state.product)
+
 
     return(
         <>
@@ -24,6 +26,13 @@ export default function User(){
             {
                 loggedIn && (
                     <>
+                    {items.length > 0 && (
+                                <NavLink>
+                                    <Button colorScheme="pink" variant="outline" >
+                                        Basket ({items.length})
+                                    </Button>
+                                </NavLink>
+                    )}
                     <NavLink to="/profile">
                     <Button colorScheme="blue">Profile</Button>
                     </NavLink>

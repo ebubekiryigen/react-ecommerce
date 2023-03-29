@@ -1,8 +1,15 @@
 import { Box, Button, Image } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import moment from "moment"
+import { useDispatch } from "react-redux";
+import { addBasket } from "../../../store/product";
+
 
 export default function Card({item}){
+
+
+    const dispatch = useDispatch()
+
     return(
         <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p="3" d="flex" alignItems="center" justifyContent="center" flexDirection="column">
             <NavLink to={`${item._id}`}>
@@ -19,7 +26,7 @@ export default function Card({item}){
                     </Box>
                 </Box>
             </NavLink>
-            <Button colorScheme="pink">
+            <Button colorScheme="pink" onClick={() => dispatch(addBasket(item))}>
                 Add To Basket
             </Button>
         </Box>

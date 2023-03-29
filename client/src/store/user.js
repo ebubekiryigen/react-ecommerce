@@ -17,7 +17,7 @@ export const fetchM = createAsyncThunk('fetch/me', async ()=>{
 
 
 const user = createSlice({
-    name:'Movie',
+    name:'User',
     initialState,
     reducers:{
         login:(state,action)=>{

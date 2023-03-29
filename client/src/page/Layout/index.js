@@ -25,7 +25,7 @@ export default function Layout(){
                                 </div>
                             </nav>
 
-                           <Outlet />
+                        <Outlet />
                         </>
                     )
                 }
