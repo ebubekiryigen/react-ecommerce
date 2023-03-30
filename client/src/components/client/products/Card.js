@@ -1,7 +1,7 @@
 import { Box, Button, Image } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import moment from "moment"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addBasket } from "../../../store/product";
 
 
@@ -9,6 +9,9 @@ export default function Card({item}){
 
 
     const dispatch = useDispatch()
+    const {items} = useSelector(state=> state.product)
+    const findBasketItem = items.find((it)=> it._id === item._id)
+
 
     return(
         <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p="3" d="flex" alignItems="center" justifyContent="center" flexDirection="column">
@@ -26,8 +29,8 @@ export default function Card({item}){
                     </Box>
                 </Box>
             </NavLink>
-            <Button colorScheme="pink" onClick={() => dispatch(addBasket(item))}>
-                Add To Basket
+            <Button colorScheme={findBasketItem ? "green" : "pink"} onClick={() => dispatch(addBasket({data:item, findBasketItem:findBasketItem}))}>
+                {findBasketItem ? "Remove from Basket" : "Add to basket"}
             </Button>
         </Box>
     )
