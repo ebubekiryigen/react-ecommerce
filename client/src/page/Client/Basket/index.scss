@@ -9,4 +9,11 @@
         width: 200px;
         height: 200px!important;
     }
+    li{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
 }
