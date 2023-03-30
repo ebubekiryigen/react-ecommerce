@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const  initialState = {
-    items:[],
+    items:JSON.parse(localStorage.getItem("ecommerceBasket")) || [],
 }
 
 const product = createSlice({
@@ -16,6 +16,7 @@ const product = createSlice({
                     ...state.items,
                     data
                 ]
+                localStorage.setItem('ecommerceBasket', JSON.stringify(state.items))
             } else {
                 const filterEd = state.items.filter((item)=> item._id !== filter._id)
                 state.items = filterEd
@@ -25,6 +26,7 @@ const product = createSlice({
         removeItemBasket:(state,action)=>{
             const filtered = state.items.filter((item)=> item._id !== action.payload)
             state.items = filtered
+            localStorage.setItem('ecommerceBasket', JSON.stringify(state.items))
         },
     },
 

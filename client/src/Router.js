@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import Profile from "./page/Client/Profile";
 import ProtectedRoute from "./page/ProtectedRoute";
 import Basket from "./page/Client/Basket";
+import Error from "./page/Error";
 
 
 function Router() {
@@ -25,6 +26,7 @@ function Router() {
         <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
+              <Route path="*" element={<Error />} />
               <Route path="/products" element={<Products />} />
               <Route path="/products/:product_id" element={<ProductDetail />} />
               <Route path="/basket" element={<Basket />} />

@@ -13,6 +13,7 @@ export default function Card({item}){
             <NavLink to={`/products/${item._id}`}>
                 <Text fontSize="18">{item.title} - {item.price} TL</Text>
                 <Image
+                loading="lazy"
                 htmlWidth={200}
                 htmlHeight={200}
                 src={item.photos[0]}
