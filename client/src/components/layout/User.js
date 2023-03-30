@@ -27,7 +27,7 @@ export default function User(){
                 loggedIn && (
                     <>
                     {items.length > 0 && (
-                                <NavLink>
+                                <NavLink to="/basket">
                                     <Button colorScheme="pink" variant="outline" >
                                         Basket ({items.length})
                                     </Button>

@@ -10,6 +10,7 @@ import { fetchM } from "./store/user";
 import { useEffect } from "react";
 import Profile from "./page/Client/Profile";
 import ProtectedRoute from "./page/ProtectedRoute";
+import Basket from "./page/Client/Basket";
 
 
 function Router() {
@@ -26,6 +27,7 @@ function Router() {
               <Route index element={<Home />} />
               <Route path="/products" element={<Products />} />
               <Route path="/products/:product_id" element={<ProductDetail />} />
+              <Route path="/basket" element={<Basket />} />
               <Route path="/signin" element={<Signin />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/" element={<ProtectedRoute />}>

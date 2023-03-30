@@ -29,7 +29,7 @@ export default function Card({item}){
                     </Box>
                 </Box>
             </NavLink>
-            <Button colorScheme={findBasketItem ? "green" : "pink"} onClick={() => dispatch(addBasket({data:item, findBasketItem:findBasketItem}))}>
+            <Button colorScheme={findBasketItem ? "green" : "pink"} variant="solid" onClick={() => dispatch(addBasket({data:item, findBasketItem:findBasketItem}))}>
                 {findBasketItem ? "Remove from Basket" : "Add to basket"}
             </Button>
         </Box>
