@@ -22,9 +22,13 @@ const product = createSlice({
             }
 
         },
+        removeItemBasket:(state,action)=>{
+            const filtered = state.items.filter((item)=> item._id !== action.payload)
+            state.items = filtered
+        },
     },
 
 })
 
-export const {addBasket} = product.actions
+export const {addBasket,removeItemBasket} = product.actions
 export default product.reducer
