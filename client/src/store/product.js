@@ -28,9 +28,13 @@ const product = createSlice({
             state.items = filtered
             localStorage.setItem('ecommerceBasket', JSON.stringify(state.items))
         },
+        clearBasket:(state)=>{
+            localStorage.removeItem('ecommerceBasket')
+            state.items = []
+        },
     },
 
 })
 
-export const {addBasket,removeItemBasket} = product.actions
+export const {addBasket,removeItemBasket,clearBasket} = product.actions
 export default product.reducer
