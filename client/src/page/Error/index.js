@@ -1,4 +1,4 @@
-import { Alert, AlertDescription, AlertIcon, AlertTitle, CloseButton } from "@chakra-ui/react";
+import { Alert, AlertDescription, AlertIcon, AlertTitle } from "@chakra-ui/react";
 
 
 export default function Error(){
