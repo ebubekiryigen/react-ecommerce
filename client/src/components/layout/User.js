@@ -14,11 +14,18 @@ export default function User(){
             {
                 !loggedIn && (
                     <>
+                    {items.length > 0 && (
+                        <NavLink to="/basket">
+                            <Button colorScheme="pink" variant="outline" >
+                                Basket ({items.length})
+                            </Button>
+                        </NavLink>
+                    )}
                     <NavLink to="/signin">
-                    <Button colorScheme="pink">Login</Button>
+                    <Button colorScheme="pink" mr={2}>Sign In</Button>
                     </NavLink>
                     <NavLink to="/signup">
-                        <Button colorScheme="pink">Register</Button>
+                        <Button colorScheme="pink">Sign Up</Button>
                     </NavLink>
                     </>
                 )
