@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom"
 export default function User(){
 
 
-    const {loggedIn} = useSelector(state=> state.user)
+    const {loggedIn,user} = useSelector(state=> state.user)
     const {items} = useSelector(state=> state.product)
 
 
@@ -33,7 +33,14 @@ export default function User(){
             {
                 loggedIn && (
                     <>
-                    {items.length > 0 && (
+                    {user?.role === "admin" && (
+                                <NavLink to="/basket">
+                                    <Button colorScheme="purple" variant="outline" >
+                                        Panel
+                                    </Button>
+                                </NavLink>
+                    )}
+                    {items?.length > 0 && (
                                 <NavLink to="/basket">
                                     <Button colorScheme="pink" variant="outline" >
                                         Basket ({items.length})
