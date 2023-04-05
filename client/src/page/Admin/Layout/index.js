@@ -1,15 +1,12 @@
-import { NavLink, Outlet } from "react-router-dom";
-
+import {Outlet } from "react-router-dom";
+import AdminMenu from "../../../components/admin/layout/Menu";
+import './index.scss'
 
 export default function AdminLayout() {
     return(
         <div>
             <nav>
-                <ul className="admin-menu">
-                    <li>
-                        <NavLink to="/">Home</NavLink>
-                    </li>
-                </ul>
+                <AdminMenu />
             </nav>
             <Outlet />
         </div>
