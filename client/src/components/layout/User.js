@@ -34,7 +34,7 @@ export default function User(){
                 loggedIn && (
                     <>
                     {user?.role === "admin" && (
-                                <NavLink to="/basket">
+                                <NavLink to="/admin">
                                     <Button colorScheme="purple" variant="outline" >
                                         Panel
                                     </Button>

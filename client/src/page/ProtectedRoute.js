@@ -1,13 +1,17 @@
 
 import { useSelector } from "react-redux";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Route } from "react-router-dom";
 
 
-export default function ProtectedRoute()  {
+export default function ProtectedRoute({ admin, component: Component, ...rest }) {
 
+    const {loggedIn,user} = useSelector(state=> state.user)
 
-    const {loggedIn} = useSelector(state=> state.user)
-
-    return loggedIn ? <Outlet /> : <Navigate to="/signin" />;
-
-}
+    if (loggedIn && user.role === "admin") {
+        return <Component {...rest} />
+    } else if (loggedIn && !admin) {
+        return <Navigate to="/" />;
+    } else {
+        return <Navigate to="/signin" />;
+    }
+  }
