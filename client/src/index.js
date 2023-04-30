@@ -7,6 +7,7 @@ import {QueryClient, QueryClientProvider } from 'react-query'
 import {ReactQueryDevtools} from "react-query/devtools"
 import store from './store'
 import { Provider } from 'react-redux';
+import "antd/dist/antd";
 
 
 const queryClient = new QueryClient({
